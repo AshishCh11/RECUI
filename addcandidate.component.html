@@ -1,0 +1,115 @@
+<h5>Selcet Company</h5>
+<div class="container" *ngIf="!post; else forminfo" novalidate> 
+<form [formGroup]="addCandidate" (ngSubmit)="onSubmit()">
+  <mat-form-field class="full-width">
+    <mat-select placeholder="Company Name" formControlName="id">
+      <mat-option
+        *ngFor="let comp of allCompany"
+        [value]="comp.id"
+        (click)="getAllPositions($event, comp.id)"
+      >
+        {{ comp.companyName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field class="full-width">
+    <mat-select placeholder="Position Name" formControlName="positionId">
+      <mat-option
+        *ngFor="let compPos of allPositions"
+        [value]="compPos.positionId"
+      >
+        {{ compPos.positionName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Name"
+      formControlName="Name" 
+    /> 
+    <mat-error *ngIf="!addCandidate.controls['Name'].valid && addCandidate.controls['Name'].touched">
+    </mat-error>
+   </mat-form-field
+  >
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Mobile"
+      formControlName="Mobile"
+    /> 
+    <mat-error *ngIf="!addCandidate.controls['Mobile'].valid && addCandidate.controls['Mobile'].touched">
+     
+    </mat-error>
+    </mat-form-field
+  >
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Experience"
+      formControlName="Experience"
+    />
+    <mat-error *ngIf="!addCandidate.controls['Experience'].valid && addCandidate.controls['Experience'].touched">
+    
+    </mat-error>
+    </mat-form-field
+  >
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="CurrentCTC"
+      formControlName="CurrentCTC"
+    /> 
+    <mat-error *ngIf="!addCandidate.controls['CurrentCTC'].valid && addCandidate.controls['CurrentCTC'].touched">
+     
+    </mat-error>
+    </mat-form-field
+  >
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="ExpectedCTC"
+      formControlName="ExpectedCTC"
+    /> 
+    <mat-error *ngIf="!addCandidate.controls['ExpectedCTC'].valid && addCandidate.controls['ExpectedCTC'].touched">
+     
+    </mat-error>
+    </mat-form-field
+  >
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="NoticePeriod"
+      formControlName="NoticePeriod"
+    /> 
+    <mat-error *ngIf="!addCandidate.controls['NoticePeriod'].valid && addCandidate.controls['NoticePeriod'].touched">
+     
+    </mat-error>
+    </mat-form-field
+  >
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Remark"
+      formControlName="Remark"
+    />
+    <mat-error *ngIf="!addCandidate.controls['Remark'].valid && addCandidate.controls['Remark'].touched">
+     
+    </mat-error> </mat-form-field
+  >
+</form>
+
+<mat-card-actions>
+  <button type="submit" [disabled]="!addCandidate.valid" class="btn btn-primary" mat-button (click)="saveCandidate()">
+    Submit
+  </button>
+</mat-card-actions>
+</div>

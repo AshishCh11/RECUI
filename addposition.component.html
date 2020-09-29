@@ -1,0 +1,21 @@
+<h5>Selcet Company</h5>
+
+    <form [formGroup]="addPosition">
+      
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Company Name"  formControlName="id">
+          <mat-option *ngFor="let comp of allCompany" [value]="comp.id"  >
+            {{comp.companyName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+<br>
+      <mat-form-field>
+        <input matInput placeholder="Position Name" formControlName="positionName">
+      </mat-form-field>
+       
+  </form>
+  
+  <mat-card-actions>
+    <button class="btn btn-primary"  mat-button (click)="savePosition()">Submit</button>
+   </mat-card-actions>

@@ -1,0 +1,83 @@
+
+.select{
+margin-left: 40px;
+margin-top: 70px;
+
+}
+.tool{
+    background-color:lightslategrey;
+}
+
+/* Structure */
+table {
+    width: 100%;
+  }
+  
+  
+
+  .example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-events {
+    width: 300px;
+    height: 800px;
+    overflow: auto;
+    border: 1px solid #555;
+  }
+  mat-sidenav-container{
+background-color:rgb(8, 236, 198);
+   height: 600px;
+  }
+li{
+  list-style: none;
+  
+}
+mat-sidenav{
+  background-color:rgba(0, 0, 0, 0.733);
+}
+p{
+ margin-left: 45px;
+ color: red;
+ font-weight: bold;
+ 
+}
+#todo
+{
+  margin-left: 45px;
+  color:chartreuse ;
+  font-weight: bold;
+
+}
+
+button
+{
+  width: 150px;
+}
+
+
+th{
+  font-weight: 800px;
+  font-weight: bold;
+  font-size: 15px;
+  background-color:rgb(16, 108, 199);
+color:white;
+}
+
+td{
+  background-color: rgb(11, 226, 215);
+  font-weight: bold;
+}
+
+mat-form-field{
+  margin-left: 40px;
+}
+
+h6{
+  font-size: 15px;
+}
+

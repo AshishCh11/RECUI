@@ -1,0 +1,110 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+               (closed)="events.push('close!')">
+    <p>MENU</p>
+    <mat-list>
+      <h3 id="todo" mat-subheader><b>TODO</b></h3>
+      <mat-list-item>
+       <li>
+     <button  mat-raised-button (click)="openDialogCompany()">ADD COMPANY</button>
+    </li>
+      </mat-list-item>
+      <mat-list-item>
+        <li>
+     <button  mat-raised-button (click)="openDialogPosition()">ADD POSITION</button>
+ </li>
+     
+      </mat-list-item>
+      <mat-list-item>
+        <li>
+     <button mat-raised-button (click)="openDialogCandidate()">ADD CANDIDATE</button>
+ </li>
+       </mat-list-item>
+
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+   
+
+
+<app-header></app-header>
+<!-- <h6><mat-checkbox [(ngModel)]="opened"></mat-checkbox></h6> -->
+<mat-form-field class="select">
+  <mat-label>COMPANY</mat-label>
+  <mat-select>
+    <mat-option>Select</mat-option>
+    <mat-option *ngFor="let comp of allCompany" [value]="comp" [value]="comp.id"
+    (click)="getAllPositions($event, comp.id)">
+      {{comp.companyName}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field class="select">
+  <mat-label>POSITION</mat-label>
+  <mat-select>
+    <mat-option>Select</mat-option>
+    <mat-option *ngFor="let compPos of allPositions" [value]="compPos" [value]="compPos.positionId"
+    (click)="candidateList($event, compPos.positionId)">
+      {{compPos.positionName}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="enter name">
+  </mat-form-field>
+
+<table mat-table [dataSource]="CandidateList" class="mat-elevation-z8">
+  
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Mobile">
+    <th mat-header-cell *matHeaderCellDef>Mobile</th>
+    <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Experience">
+    <th mat-header-cell *matHeaderCellDef> Experience </th>
+    <td mat-cell *matCellDef="let element"> {{element.experience}} </td>
+  </ng-container>
+   <!-- Symbol Column -->
+  <ng-container matColumnDef="CurrentCTC">
+    <th mat-header-cell *matHeaderCellDef> CurrentCTC </th>
+    <td mat-cell *matCellDef="let element"> {{element.currentCTC}} </td>
+  </ng-container>
+
+   <!-- Symbol Column -->
+   <ng-container matColumnDef="ExpectedCTC">
+    <th mat-header-cell *matHeaderCellDef> ExpectedCTC </th>
+    <td mat-cell *matCellDef="let element"> {{element.expectedCTC}} </td>
+  </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="NoticePeriod">
+      <th mat-header-cell *matHeaderCellDef> NoticePeriod </th>
+      <td mat-cell *matCellDef="let element"> {{element.noticePeriod}} </td>
+    </ng-container>
+      <!-- Symbol Column -->
+   <ng-container matColumnDef="Remark">
+    <th mat-header-cell *matHeaderCellDef> Remark </th>
+    <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
+  </ng-container>
+  
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
+<!-- <app-navbar></app-navbar> -->
+
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+  
